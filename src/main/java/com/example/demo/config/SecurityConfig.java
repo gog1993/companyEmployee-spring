@@ -14,7 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
- public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private SecurityService securityService;
@@ -32,8 +32,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/employees/**")
+                .antMatchers(HttpMethod.GET, "/employees")
                 .hasAnyAuthority("ADMIN", "USER")
+
+                .antMatchers(HttpMethod.GET, "/addEmployees")
+//                .hasAnyAuthority("ADMIN", "USER")
+.permitAll()
+                .antMatchers(HttpMethod.GET, "/addCompany")
+                .hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.GET, "/deletecompany/**")
+                .hasAnyAuthority("ADMIN")
 
                 .antMatchers(HttpMethod.GET, "/")
                 .permitAll()

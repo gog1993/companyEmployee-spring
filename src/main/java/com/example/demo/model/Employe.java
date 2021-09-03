@@ -24,7 +24,7 @@ public class Employe {
    private Company company;
    private String position;
    private  String email;
-   private  int phone_number;
+   private  int phoneNumber;
    private  double salary;
    private String password;
   @Enumerated(value = EnumType.STRING)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+view all massages
+ <tr>
+     <th>From</th>
+     <th>massage</th>
+ </tr>
+<tr th:each="massage:${massages}">
+    <td th:text="${massage.fromEmployee.name}"></td>
+    <td th:text="${massage.massage}"></td>
+
+</tr>
+
+</body>
+</html>

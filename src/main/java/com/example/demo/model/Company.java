@@ -22,6 +22,5 @@ public class Company {
    private String name;
    private int size;
    private String address;
-   private String password;
 
 }
