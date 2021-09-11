@@ -28,9 +28,9 @@ public class MassageController {
     public  String getAllEmployee(ModelMap modelMap){
         List <Employe> all=employRepasitory.findAll();
         modelMap.addAttribute("employees", all);
-        return "massage";}
+        return "sendMassage";}
 
-        @GetMapping("/allMassage")
+        @GetMapping("/showMassage")
     public  String getAllMassages(ModelMap modelMap, @AuthenticationPrincipal CurrentEmploee currentEmploee){
         List <Massage> all=massageRepository.findAllByToEmployee_Id(currentEmploee.getEmploye().getId());
         modelMap.addAttribute("massages", all);
