@@ -25,7 +25,7 @@ public class MassageController {
 
 
     @GetMapping("/sendMassage")
-    public  String getAllEmployee(ModelMap modelMap){
+    public  String sendMassage(ModelMap modelMap){
         List <Employe> all=employRepasitory.findAll();
         modelMap.addAttribute("employees", all);
         return "sendMassage";}
@@ -42,7 +42,7 @@ public class MassageController {
     public String sendMassage(@ModelAttribute Massage massage, @AuthenticationPrincipal CurrentEmploee currentEmploee){
         massage.setFromEmployee(currentEmploee.getEmploye());
         massageRepository.save(massage);
-        return "redirect:/employees";
+        return "redirect:/sendMassage";
     }
 
 }

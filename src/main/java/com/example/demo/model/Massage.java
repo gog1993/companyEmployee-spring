@@ -18,12 +18,13 @@ public class Massage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String massage;
     @ManyToOne
     @JoinColumn(name="from_id")
     private Employe fromEmployee;
     @ManyToOne
     @JoinColumn(name="to_id")
     private Employe toEmployee;
-    private String massage;
+
 
 }
